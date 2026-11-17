@@ -12,7 +12,7 @@
 
 Hasta ahora usaste una herramienta para cada cosa: `dlt` para ingestar, dbt para transformar, Kestra para orquestar. Funciona, pero cada herramienta tiene su configuración, su forma de declarar dependencias y su forma de reportar errores. Conectarlas requiere trabajo.
 
-Una **plataforma de datos** intenta cubrir todo el ciclo en un mismo lugar. [Bruin](https://getbruin.com/docs) es una herramienta de línea de comandos que hace eso:
+Una **plataforma de datos** intenta cubrir todo el ciclo en un mismo lugar. [Bruin](https://getbruin.com/docs/bruin/) es una herramienta de línea de comandos que hace eso:
 
 - ingesta y transformación con **SQL o Python**;
 - **controles de calidad** declarados junto al código;
@@ -128,7 +128,7 @@ bruin run --start-date 2024-03-01 --end-date 2024-03-07 invernadero
 - [Introducción](https://youtu.be/f6vg7lGqZx0) · [Primeros pasos](https://youtu.be/JJwHKSidX_c) · [Pipeline de taxis de punta a punta](https://youtu.be/q0k_iz9kWsI) · [Bruin MCP](https://youtu.be/224xH7h8OaQ) · [Bruin Cloud](https://youtu.be/uBqjLEwF8rc)
 - Conceptos: [Proyectos](https://www.youtube.com/watch?v=YWDjnSxbBtY) · [Pipelines](https://www.youtube.com/watch?v=uzp_DiR4Sok) · [Assets](https://www.youtube.com/watch?v=ZElY5SoqrwI) · [Variables](https://www.youtube.com/watch?v=XCx0nDmhhxA) · [Comandos](https://www.youtube.com/watch?v=3nykPEs_V7E)
 - [README del módulo 5 (versión 2026)](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/a66ad5da2598d7ac147b37eec29632c93f4b1d9d/05-data-platforms)
-- [Documentación de Bruin](https://getbruin.com/docs)
+- [Documentación de Bruin](https://getbruin.com/docs/bruin/)
 
 ## 10. Errores frecuentes
 

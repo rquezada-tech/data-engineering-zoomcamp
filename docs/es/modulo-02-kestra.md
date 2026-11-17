@@ -142,7 +142,7 @@ docker compose exec datos_postgres psql -U datos -d sensores -c "SELECT medido_e
     errorMessage: "Se esperaban 144 filas y llegaron {{ outputs.contar.row.filas }}"
 ```
 
-> El backfill desde la interfaz no se probó automáticamente al preparar esta ruta. La ejecución manual con distintas fechas sí se probó.
+> Probado al preparar la ruta: con la tarea `validar`, la ejecución termina en `SUCCESS` cuando llegan 144 filas, y en `FAILED` con el mensaje "Se esperaban 100 filas y llegaron 144" si cambias el número esperado a 100. El **backfill desde la interfaz no se probó**; la ejecución manual con distintas fechas sí.
 
 </details>
 

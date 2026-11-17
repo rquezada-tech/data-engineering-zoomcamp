@@ -157,7 +157,7 @@ Todo el módulo 7 funciona sin GCP.
 - [README del módulo 7 (versión 2026)](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/a66ad5da2598d7ac147b37eec29632c93f4b1d9d/07-streaming)
 - [Soluciones de referencia 2026](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/a66ad5da2598d7ac147b37eec29632c93f4b1d9d/cohorts/2026/07-streaming/solutions)
 - [Ejemplo PyFlink con licencia MIT](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/a66ad5da2598d7ac147b37eec29632c93f4b1d9d/07-streaming/extras/pyflink) (autores: Sreela Das, Julie Scherer y Zach Wilson)
-- [Documentación de Redpanda](https://docs.redpanda.com/) · [Flink SQL: ventanas](https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/table/sql/queries/window-tvf/)
+- [Documentación de Redpanda](https://docs.redpanda.com/) · [Flink SQL: ventanas](https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/dev/table/sql/queries/window-tvf/)
 
 ## 10. Errores frecuentes
 
