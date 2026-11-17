@@ -1,6 +1,6 @@
 # Apéndice opcional · Lo que requiere Google Cloud de verdad
 
-[← Proyecto final](proyecto-final.md) · [Índice](../../README.es.md)
+[← Proyecto final](proyecto-final.md) · [Índice](../../README.md)
 
 > **En una frase:** aquí está todo lo que **no** se puede reproducir fielmente en tu Mac, explicado para que entiendas el concepto aunque no lo ejecutes, y con los pasos para hacerlo si algún día abres una cuenta de GCP.
 
@@ -103,4 +103,4 @@ BigQuery permite entrenar modelos de machine learning con SQL (`CREATE MODEL ...
 | BigQuery ML | No disponible en la imagen estándar del emulador | — |
 | Kestra, Spark y dbt Cloud con GCP | Usan servicios reales | Las versiones locales de los módulos 2, 4 y 6 |
 
-[← Proyecto final](proyecto-final.md) · [Índice](../../README.es.md)
+[← Proyecto final](proyecto-final.md) · [Índice](../../README.md)

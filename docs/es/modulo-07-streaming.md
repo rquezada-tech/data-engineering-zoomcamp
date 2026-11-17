@@ -1,6 +1,6 @@
 # Módulo 7 · Streaming con Redpanda y PyFlink
 
-[← Módulo 6](modulo-06-pyspark.md) · [Índice](../../README.es.md) · [Proyecto final →](proyecto-final.md)
+[← Módulo 6](modulo-06-pyspark.md) · [Índice](../../README.md) · [Proyecto final →](proyecto-final.md)
 
 > **En una frase:** aprendes a procesar datos **mientras llegan**, evento por evento, agrupándolos en ventanas de tiempo y guardando los resultados en una base de datos.
 
@@ -169,4 +169,4 @@ Todo el módulo 7 funciona sin GCP.
 | `WARNING: Unknown module: jdk.compiler` | Es inofensivo |
 | La imagen de Flink ocupa mucho | Unos 2,8 GB. Bórrala al terminar con `docker image rm dez-m7-flink:2.2.0` |
 
-[← Módulo 6](modulo-06-pyspark.md) · [Índice](../../README.es.md) · [Proyecto final →](proyecto-final.md)
+[← Módulo 6](modulo-06-pyspark.md) · [Índice](../../README.md) · [Proyecto final →](proyecto-final.md)

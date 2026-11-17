@@ -1,6 +1,6 @@
 # Clasificación de ejercicios
 
-[Índice](../../README.es.md)
+[Índice](../../README.md)
 
 Esta tabla resume **dónde** se puede hacer cada parte del curso oficial (cohorte 2026) y cada laboratorio de esta ruta.
 

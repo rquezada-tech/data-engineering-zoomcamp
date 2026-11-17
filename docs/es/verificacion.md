@@ -1,6 +1,6 @@
 # Registro de verificación
 
-[Índice](../../README.es.md)
+[Índice](../../README.md)
 
 Qué se probó al preparar esta ruta, cómo se hizo y con qué resultado. Si algo **no** se probó, se indica explícitamente. **Haber configurado algo no significa haberlo verificado.**
 
@@ -24,12 +24,12 @@ uv run --no-project --with pyyaml python laboratorios/verificar_ruta.py
 
 Revisa:
 
-- **enlaces internos y anclas** de `README.es.md`, `docs/es/*.md` y los README de los laboratorios;
+- **enlaces internos y anclas** de `README.md`, `docs/es/*.md` y los README de los laboratorios;
 - que cada enlace al repositorio original exista en el commit de referencia `a66ad5d` (requiere el remoto `upstream`: `git remote add upstream https://github.com/DataTalksClub/data-engineering-zoomcamp.git && git fetch upstream`);
 - `docker compose config` de cada `docker-compose.yml`;
 - que todos los YAML se puedan leer y que todos los `.py` compilen.
 
-Resultado: `RUTA OK ✅` (28 documentos, 186 enlaces internos, 35 enlaces al original, 5 archivos Compose, 18 YAML y 33 archivos Python).
+Resultado: `RUTA OK ✅` (28 documentos, 187 enlaces internos, 35 enlaces al original, 5 archivos Compose, 18 YAML y 33 archivos Python).
 
 El validador no revisa los enlaces **externos** (YouTube, documentación de terceros). El 2026-11-17 se revisaron aparte con `curl`: respondieron los 81 enlaces externos, después de corregir 2 que daban 404 (documentación de Bruin y de ventanas de Flink).
 

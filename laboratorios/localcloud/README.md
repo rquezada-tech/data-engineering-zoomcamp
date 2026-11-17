@@ -1,6 +1,6 @@
 # LocalCloud: tu "Google Cloud de bolsillo"
 
-> Parte de la [ruta en español](../../README.es.md) (adaptación no oficial). Explicación completa en [docs/es/localcloud.md](../../docs/es/localcloud.md).
+> Parte de la [ruta en español](../../README.md) (adaptación no oficial). Explicación completa en [docs/es/localcloud.md](../../docs/es/localcloud.md).
 
 [LocalCloud](https://local.cloud/) es un programa que **imita** servicios de Google Cloud (BigQuery, Cloud Storage y otros) dentro de un contenedor Docker en tu computador. Las librerías oficiales de Google (por ejemplo `google-cloud-bigquery`) creen que hablan con Google, pero en realidad hablan con tu Mac.
 

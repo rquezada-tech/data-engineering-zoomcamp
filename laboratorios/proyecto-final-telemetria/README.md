@@ -1,6 +1,6 @@
 # Proyecto final local · Disponibilidad de dispositivos (telemetría)
 
-> Parte de la [ruta en español](../../README.es.md) (adaptación no oficial). La explicación del diseño y cómo usarlo como base para tu propio proyecto está en la [guía del proyecto final](../../docs/es/proyecto-final.md).
+> Parte de la [ruta en español](../../README.md) (adaptación no oficial). La explicación del diseño y cómo usarlo como base para tu propio proyecto está en la [guía del proyecto final](../../docs/es/proyecto-final.md).
 
 **Clasificación:** 🟡 *adaptado a local*: lago y warehouse emulados con LocalCloud. Datos 100 % sintéticos; no usa datos ni credenciales de ninguna cuenta.
 

@@ -1,6 +1,6 @@
 # Antes de empezar
 
-[Índice](../../README.es.md) · [LocalCloud →](localcloud.md)
+[Índice](../../README.md) · [LocalCloud →](localcloud.md)
 
 > **En una frase:** aquí entiendes qué es la ingeniería de datos, cómo se recorre esta ruta y cómo dejar tu Mac listo.
 
@@ -194,4 +194,4 @@ Luego enciende LocalCloud y corre tu primer laboratorio de nube local, siguiendo
 - **Toma notas** de los errores que resolviste. Compartir lo aprendido es parte del curso oficial (*learning in public*).
 - **Avanza a tu ritmo.** El curso oficial dura unas 10 semanas; aquí no hay plazos.
 
-[Índice](../../README.es.md) · [LocalCloud →](localcloud.md)
+[Índice](../../README.md) · [LocalCloud →](localcloud.md)

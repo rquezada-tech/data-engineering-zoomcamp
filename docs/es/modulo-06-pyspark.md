@@ -1,6 +1,6 @@
 # Módulo 6 · Procesamiento por lotes (batch) con PySpark
 
-[← Módulo 5](modulo-05-bruin.md) · [Índice](../../README.es.md) · [Módulo 7 →](modulo-07-streaming.md)
+[← Módulo 5](modulo-05-bruin.md) · [Índice](../../README.md) · [Módulo 7 →](modulo-07-streaming.md)
 
 > **En una frase:** aprendes a procesar grandes volúmenes de datos repartiendo el trabajo entre muchos núcleos (o máquinas) con Apache Spark, usando Python.
 
@@ -173,4 +173,4 @@ En `trabajo_spark.py`, el DataFrame limpio se llama `limpios` y la vista tempora
 | Aviso de memoria al 95 % | Es inofensivo con estos volúmenes |
 | `Path does not exist: datos/viajes` | Falta ejecutar `generar_datos.py` |
 
-[← Módulo 5](modulo-05-bruin.md) · [Índice](../../README.es.md) · [Módulo 7 →](modulo-07-streaming.md)
+[← Módulo 5](modulo-05-bruin.md) · [Índice](../../README.md) · [Módulo 7 →](modulo-07-streaming.md)

@@ -1,6 +1,6 @@
 # Módulo 2 · Orquestación de flujos de trabajo con Kestra
 
-[← Módulo 1](modulo-01-docker-postgres.md) · [Índice](../../README.es.md) · [Taller dlt →](taller-dlt.md)
+[← Módulo 1](modulo-01-docker-postgres.md) · [Índice](../../README.md) · [Taller dlt →](taller-dlt.md)
 
 > **En una frase:** aprendes a poner tus scripts de datos "en piloto automático": que corran en orden, a la hora correcta, que se puedan repetir sin duplicar datos y que te avisen si algo falla.
 
@@ -176,4 +176,4 @@ docker compose exec datos_postgres psql -U datos -d sensores -c "SELECT medido_e
 | La tarea de Postgres no conecta | Dentro de Docker, la base es `datos_postgres:5432`. Desde tu Mac es `localhost:5434` |
 | El Schedule no se ejecuta | Está desactivado a propósito (`disabled: true`). Cámbialo a `false` y vuelve a cargar el flujo |
 
-[← Módulo 1](modulo-01-docker-postgres.md) · [Índice](../../README.es.md) · [Taller dlt →](taller-dlt.md)
+[← Módulo 1](modulo-01-docker-postgres.md) · [Índice](../../README.md) · [Taller dlt →](taller-dlt.md)

@@ -1,6 +1,6 @@
 # LocalCloud: Google Cloud en tu Mac
 
-[← Antes de empezar](00-antes-de-empezar.md) · [Índice](../../README.es.md) · [Módulo 1 →](modulo-01-docker-postgres.md)
+[← Antes de empezar](00-antes-de-empezar.md) · [Índice](../../README.md) · [Módulo 1 →](modulo-01-docker-postgres.md)
 
 > **En una frase:** LocalCloud es un programa que se hace pasar por Google Cloud dentro de un contenedor Docker, para que practiques BigQuery y Cloud Storage sin cuenta ni costos.
 
@@ -136,4 +136,4 @@ El emulador envía telemetría de uso por defecto. En nuestro `docker-compose.ym
 | `curl: (52) Empty reply from server` justo después de encender | El emulador aún está iniciando: espera unos segundos o usa `--wait` |
 | Se perdieron mis tablas | Usaste `down -v`, que borra el volumen de datos. Usa `down` sin `-v` para conservarlos |
 
-[← Antes de empezar](00-antes-de-empezar.md) · [Índice](../../README.es.md) · [Módulo 1 →](modulo-01-docker-postgres.md)
+[← Antes de empezar](00-antes-de-empezar.md) · [Índice](../../README.md) · [Módulo 1 →](modulo-01-docker-postgres.md)

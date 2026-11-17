@@ -1,6 +1,6 @@
 # Atribución, licencias y versión de referencia
 
-[Índice](../../README.es.md)
+[Índice](../../README.md)
 
 ## Adaptación no oficial
 
@@ -45,4 +45,4 @@ Todos los laboratorios usan **datos sintéticos** generados con semillas fijas: 
 
 ## Licencia de esta adaptación
 
-El repositorio original no declara una licencia, así que este fork tampoco agrega una licencia general. El contenido nuevo de `README.es.md`, `docs/es/` y `laboratorios/` lo escribió el autor de esta adaptación.
+El repositorio original no declara una licencia, así que este fork tampoco agrega una licencia general. El contenido nuevo de `README.md`, `docs/es/` y `laboratorios/` lo escribió el autor de esta adaptación. En esta rama, el `README.md` original del curso se conserva sin cambios (salvo una línea inicial) como `README.en.md`; la rama `main` lo mantiene en su lugar original.

@@ -1,6 +1,6 @@
 # Módulo 1 · Contenedores con Docker y bases de datos con PostgreSQL
 
-[← LocalCloud](localcloud.md) · [Índice](../../README.es.md) · [Módulo 2 →](modulo-02-kestra.md)
+[← LocalCloud](localcloud.md) · [Índice](../../README.md) · [Módulo 2 →](modulo-02-kestra.md)
 
 > **En una frase:** aprendes a empaquetar programas en contenedores y a cargar datos en una base de datos PostgreSQL con un script de Python, todo con un par de comandos.
 
@@ -166,4 +166,4 @@ El generador pone el máximo de calor cerca de las 15:00, así que deberías ver
 | `could not translate host name "postgres"` | Ejecutaste el script fuera de Docker | Desde tu Mac usa `localhost` |
 | `password authentication failed` | Cambiaste la clave después de crear el volumen | `docker compose down -v` y vuelve a encender. **Ojo:** borra los datos |
 
-[← LocalCloud](localcloud.md) · [Índice](../../README.es.md) · [Módulo 2 →](modulo-02-kestra.md)
+[← LocalCloud](localcloud.md) · [Índice](../../README.md) · [Módulo 2 →](modulo-02-kestra.md)

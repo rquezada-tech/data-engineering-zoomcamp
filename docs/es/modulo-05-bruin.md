@@ -1,6 +1,6 @@
 # Módulo 5 · Plataformas de datos con Bruin
 
-[← Módulo 4](modulo-04-dbt-duckdb.md) · [Índice](../../README.es.md) · [Módulo 6 →](modulo-06-pyspark.md)
+[← Módulo 4](modulo-04-dbt-duckdb.md) · [Índice](../../README.md) · [Módulo 6 →](modulo-06-pyspark.md)
 
 > **En una frase:** aprendes a reunir en **una sola herramienta** lo que en los módulos anteriores hiciste con varias: ingestar, transformar, controlar la calidad, ver el linaje y programar la ejecución.
 
@@ -138,4 +138,4 @@ bruin run --start-date 2024-03-01 --end-date 2024-03-07 invernadero
 | Aparece un `.bruin.yml` en la raíz del repositorio | Bórralo y usa `BRUIN_CONFIG_FILE` como indica la sección 4 |
 | La primera ejecución tarda | Bruin descarga Python y sus librerías la primera vez (20 a 60 segundos) |
 
-[← Módulo 4](modulo-04-dbt-duckdb.md) · [Índice](../../README.es.md) · [Módulo 6 →](modulo-06-pyspark.md)
+[← Módulo 4](modulo-04-dbt-duckdb.md) · [Índice](../../README.md) · [Módulo 6 →](modulo-06-pyspark.md)

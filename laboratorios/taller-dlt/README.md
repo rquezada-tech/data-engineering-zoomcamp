@@ -1,6 +1,6 @@
 # Laboratorio · Taller de ingesta con `dlt`
 
-> Parte de la [ruta en español](../../README.es.md). La guía con la explicación de los conceptos está en [docs/es/taller-dlt.md](../../docs/es/taller-dlt.md).
+> Parte de la [ruta en español](../../README.md). La guía con la explicación de los conceptos está en [docs/es/taller-dlt.md](../../docs/es/taller-dlt.md).
 
 **Qué vas a hacer:** cargar pedidos de una tienda inventada a una base de datos DuckDB usando `dlt`, primero completos y después **solo los nuevos** (carga incremental).
 

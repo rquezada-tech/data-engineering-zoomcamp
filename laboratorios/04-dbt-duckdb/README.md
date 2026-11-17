@@ -1,6 +1,6 @@
 # Laboratorio · Módulo 4: dbt con DuckDB
 
-> Parte de la [ruta en español](../../README.es.md). La guía con los conceptos está en [docs/es/modulo-04-dbt-duckdb.md](../../docs/es/modulo-04-dbt-duckdb.md).
+> Parte de la [ruta en español](../../README.md). La guía con los conceptos está en [docs/es/modulo-04-dbt-duckdb.md](../../docs/es/modulo-04-dbt-duckdb.md).
 
 **Qué vas a construir:** un proyecto dbt llamado `viajes_locales` que toma viajes en bruto (archivos Parquet) y los transforma, capa por capa, hasta llegar a un reporte de ingresos mensuales por zona. Todo queda en un archivo DuckDB dentro de esta carpeta.
 

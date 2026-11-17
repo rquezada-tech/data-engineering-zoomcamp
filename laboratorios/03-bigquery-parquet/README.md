@@ -1,6 +1,6 @@
 # Laboratorio 3 · De un Parquet a BigQuery, todo en tu Mac
 
-> Parte de la [ruta en español](../../README.es.md) (adaptación no oficial). La explicación de conceptos está en la [guía del módulo 3](../../docs/es/modulo-03-data-warehouse-bigquery.md). Este archivo es la "receta" para ejecutar.
+> Parte de la [ruta en español](../../README.md) (adaptación no oficial). La explicación de conceptos está en la [guía del módulo 3](../../docs/es/modulo-03-data-warehouse-bigquery.md). Este archivo es la "receta" para ejecutar.
 
 **Clasificación:** 🟡 *adaptado a local*. Usa BigQuery y Cloud Storage **emulados** con [LocalCloud](https://local.cloud/). No necesitas cuenta de Google ni tarjeta de crédito.
 

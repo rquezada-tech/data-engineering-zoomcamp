@@ -1,6 +1,6 @@
 # Taller · Ingesta de datos con `dlt`
 
-[← Módulo 2](modulo-02-kestra.md) · [Índice](../../README.es.md) · [Módulo 3 →](modulo-03-data-warehouse-bigquery.md)
+[← Módulo 2](modulo-02-kestra.md) · [Índice](../../README.md) · [Módulo 3 →](modulo-03-data-warehouse-bigquery.md)
 
 > **En una frase:** aprendes a traer datos desde una API (un servicio web que entrega datos) hasta una base de datos, sin escribir a mano todo el código repetitivo, y a cargar **solo lo nuevo** en cada ejecución.
 
@@ -147,4 +147,4 @@ La idea es simular el paso del tiempo: primero "existen" 3 días de pedidos, des
 | Siempre carga 0 pedidos | El estado recuerda la última fecha. Para reiniciar, borra el `.duckdb` **y** `.dlt_pipelines/` |
 | Las horas aparecen corridas | DuckDB usa la zona horaria de tu Mac al mostrar; usa `SET TimeZone = 'UTC'` |
 
-[← Módulo 2](modulo-02-kestra.md) · [Índice](../../README.es.md) · [Módulo 3 →](modulo-03-data-warehouse-bigquery.md)
+[← Módulo 2](modulo-02-kestra.md) · [Índice](../../README.md) · [Módulo 3 →](modulo-03-data-warehouse-bigquery.md)

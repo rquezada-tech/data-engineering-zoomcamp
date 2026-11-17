@@ -1,6 +1,6 @@
 # Glosario
 
-[Índice](../../README.es.md)
+[Índice](../../README.md)
 
 Términos que aparecen en la ruta, explicados en simple. Entre paréntesis va el módulo donde se usan más.
 

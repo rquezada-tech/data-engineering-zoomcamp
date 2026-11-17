@@ -1,6 +1,6 @@
 # Laboratorio módulo 6 · PySpark sin instalar Java
 
-> Parte de la [ruta en español](../../README.es.md) (adaptación no oficial del [Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp) de DataTalks.Club; código original de esta adaptación). Conceptos en la [guía del módulo 6](../../docs/es/modulo-06-pyspark.md).
+> Parte de la [ruta en español](../../README.md) (adaptación no oficial del [Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp) de DataTalks.Club; código original de esta adaptación). Conceptos en la [guía del módulo 6](../../docs/es/modulo-06-pyspark.md).
 
 Spark necesita Java para funcionar. En vez de instalar Java en tu Mac, usamos la imagen oficial
 `apache/spark:4.0.1-python3`, que ya trae **Spark 4.0.1 + Java 17 + Python 3.10** y funciona en Apple Silicon (arm64).

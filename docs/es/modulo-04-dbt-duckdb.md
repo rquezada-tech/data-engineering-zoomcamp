@@ -1,6 +1,6 @@
 # Módulo 4 · Analytics engineering con dbt y DuckDB
 
-[← Módulo 3](modulo-03-data-warehouse-bigquery.md) · [Índice](../../README.es.md) · [Módulo 5 →](modulo-05-bruin.md)
+[← Módulo 3](modulo-03-data-warehouse-bigquery.md) · [Índice](../../README.md) · [Módulo 5 →](modulo-05-bruin.md)
 
 > **En una frase:** aprendes a transformar datos crudos en tablas confiables y listas para reportes, escribiendo SQL organizado en capas, con pruebas automáticas y documentación.
 
@@ -182,4 +182,4 @@ El `+` antes del nombre significa "este modelo **y todo lo que necesita antes**"
 | `Could not set lock on file ... .duckdb` | Otro programa tiene abierto el archivo; ciérralo |
 | Totales por mes distintos a los de la guía | Revisa `TimeZone: UTC` en `profiles.yml` |
 
-[← Módulo 3](modulo-03-data-warehouse-bigquery.md) · [Índice](../../README.es.md) · [Módulo 5 →](modulo-05-bruin.md)
+[← Módulo 3](modulo-03-data-warehouse-bigquery.md) · [Índice](../../README.md) · [Módulo 5 →](modulo-05-bruin.md)

@@ -1,6 +1,6 @@
 # Proyecto final · Telemetría de dispositivos, de punta a punta
 
-[← Módulo 7](modulo-07-streaming.md) · [Índice](../../README.es.md) · [Apéndice GCP →](apendice-gcp.md)
+[← Módulo 7](modulo-07-streaming.md) · [Índice](../../README.md) · [Apéndice GCP →](apendice-gcp.md)
 
 > **En una frase:** juntas todo lo aprendido en un pipeline completo (ingesta, lago, warehouse, calidad, métricas y dashboard) que responde una pregunta real de negocio.
 
@@ -163,4 +163,4 @@ Si usas este ejemplo como punto de partida para practicar, estas mejoras suben s
 4. Empieza con lo mínimo de punta a punta, aunque sea feo, y después mejora cada pieza.
 5. Escribe el README pensando en alguien que nunca vio tu proyecto: es el criterio de **reproducibilidad**.
 
-[← Módulo 7](modulo-07-streaming.md) · [Índice](../../README.es.md) · [Apéndice GCP →](apendice-gcp.md)
+[← Módulo 7](modulo-07-streaming.md) · [Índice](../../README.md) · [Apéndice GCP →](apendice-gcp.md)

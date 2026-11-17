@@ -1,6 +1,6 @@
 # Módulo 3 · Data warehouse con BigQuery (en local con LocalCloud)
 
-[← Taller dlt](taller-dlt.md) · [Índice](../../README.es.md) · [Módulo 4 →](modulo-04-dbt-duckdb.md)
+[← Taller dlt](taller-dlt.md) · [Índice](../../README.md) · [Módulo 4 →](modulo-04-dbt-duckdb.md)
 
 > **En una frase:** vas a guardar datos en un "lago" (un bucket), consultarlos con SQL desde un "almacén" (BigQuery) y aprender a organizar las tablas para que las consultas lean menos datos.
 
@@ -245,4 +245,4 @@ Material escrito:
 | `Not found: Dataset` | Te saltaste el paso 03 | Ejecuta los pasos en orden |
 | La tabla externa da 0 filas | El patrón `uris` no coincide con los archivos | Revisa con el paso 02 qué rutas quedaron en el bucket |
 
-[← Taller dlt](taller-dlt.md) · [Índice](../../README.es.md) · [Módulo 4 →](modulo-04-dbt-duckdb.md)
+[← Taller dlt](taller-dlt.md) · [Índice](../../README.md) · [Módulo 4 →](modulo-04-dbt-duckdb.md)

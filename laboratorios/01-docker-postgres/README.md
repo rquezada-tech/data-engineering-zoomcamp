@@ -1,6 +1,6 @@
 # Laboratorio 1 · Docker, PostgreSQL y una ingesta en contenedor
 
-> Parte de la [ruta en español](../../README.es.md) (adaptación no oficial). Conceptos en la [guía del módulo 1](../../docs/es/modulo-01-docker-postgres.md).
+> Parte de la [ruta en español](../../README.md) (adaptación no oficial). Conceptos en la [guía del módulo 1](../../docs/es/modulo-01-docker-postgres.md).
 
 **Clasificación:** 🟢 *local sin cambios* (no usa Google Cloud).
 

@@ -1,6 +1,6 @@
 # Laboratorio módulo 7 · Streaming con Redpanda, PyFlink y PostgreSQL
 
-> Parte de la [ruta en español](../../README.es.md) (adaptación no oficial del [Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp) de DataTalks.Club; código original de esta adaptación). Conceptos en la [guía del módulo 7](../../docs/es/modulo-07-streaming.md).
+> Parte de la [ruta en español](../../README.md) (adaptación no oficial del [Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp) de DataTalks.Club; código original de esta adaptación). Conceptos en la [guía del módulo 7](../../docs/es/modulo-07-streaming.md).
 
 ## Qué vas a construir
 
