@@ -133,5 +133,5 @@ docker compose -f laboratorios/localcloud/docker-compose.yml down -v     # apaga
 |---|---|---|
 | `No pude hablar con LocalCloud` | El contenedor está apagado | Ejecuta el `docker compose ... up -d --wait` del paso 1 |
 | `port is already allocated` al encender | Otro programa usa los puertos 5380-5405 | Apaga el otro programa o un LocalCloud anterior: `docker ps` |
-| `mis-aligned LINKEDIT string pool` | Tu Python es x86_64 (Rosetta) | Lee [¿Tu Mac usa herramientas arm64?](../../docs/es/00-antes-de-empezar.md#tu-mac-usa-herramientas-arm64) |
+| `mis-aligned LINKEDIT string pool` | Tu Python es x86_64 (Rosetta) | Lee [¿Tu Mac usa herramientas arm64?](../../docs/es/00-antes-de-empezar.md#42-tu-mac-usa-herramientas-arm64) |
 | `uv: command not found` | Falta uv | `brew install uv` |

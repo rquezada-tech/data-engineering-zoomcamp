@@ -103,6 +103,6 @@ Al final del pipeline verás `PIPELINE OK ✅`.
 
 - **Escala:** son unos 23 mil eventos. El objetivo es aprender el diseño, no medir rendimiento.
 - **Costos y bytes:** el emulador no reproduce la facturación ni la poda de particiones al estimar bytes (ver la [guía del módulo 3](../../docs/es/modulo-03-data-warehouse-bigquery.md)).
-- **Orquestación:** `telemetria/pipeline.py` ejecuta los pasos en orden, pero no es un orquestador. La [guía del proyecto](../../docs/es/proyecto-final.md#mejoras-sugeridas) explica cómo llevarlo a Kestra.
+- **Orquestación:** `telemetria/pipeline.py` ejecuta los pasos en orden, pero no es un orquestador. La [guía del proyecto](../../docs/es/proyecto-final.md#8-mejoras-sugeridas) explica cómo llevarlo a Kestra.
 
 Probado el 2026-11-17 en macOS con Apple Silicon y Python 3.12 arm64: pipeline completo, `pytest` (3 pruebas) y dashboard en Streamlit revisado en el navegador.

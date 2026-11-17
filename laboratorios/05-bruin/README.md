@@ -1,6 +1,6 @@
 # Laboratorio · Módulo 5: plataforma de datos con Bruin
 
-> Parte de la [ruta en español](../../README.es.md). La guía con los conceptos está en [docs/es/05-data-platforms-bruin.md](../../docs/es/05-data-platforms-bruin.md).
+> Parte de la [ruta en español](../../README.es.md). La guía con los conceptos está en [docs/es/modulo-05-bruin.md](../../docs/es/modulo-05-bruin.md).
 
 **Qué vas a construir:** un pipeline de Bruin llamado `invernadero` que genera lecturas de sensores de temperatura y humedad, las limpia, revisa su calidad automáticamente y produce un resumen diario con alertas de calor. Todo en un archivo DuckDB local.
 

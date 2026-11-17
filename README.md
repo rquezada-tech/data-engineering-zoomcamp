@@ -1,3 +1,5 @@
+> 🌎 **¿Prefieres español?** Este fork incluye una ruta no oficial en español, ejecutable en local con LocalCloud: [README.es.md](README.es.md).
+
 <p align="center">
   <img width="100%" src="/images/architecture/arch_v5_workshops.png" alt="Data Engineering Zoomcamp Overview">
 </p>
