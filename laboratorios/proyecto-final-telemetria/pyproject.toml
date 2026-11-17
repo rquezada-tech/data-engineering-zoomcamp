@@ -1,0 +1,23 @@
+[project]
+name = "proyecto-final-telemetria"
+version = "0.1.0"
+description = "Proyecto final local: telemetría de dispositivos con lago (GCS local), warehouse (BigQuery local), calidad, métricas y dashboard"
+requires-python = ">=3.11"
+dependencies = [
+    "google-cloud-bigquery>=3.25",
+    "google-cloud-storage>=2.18",
+    "pyarrow>=17",
+    "pandas>=2.2",
+    "db-dtypes>=1.3",
+    "streamlit>=1.40",
+    "altair>=5",
+    # Ver laboratorios/03-bigquery-parquet/pyproject.toml: red de seguridad para Python x86_64 bajo Rosetta.
+    "cryptography>=44,<49",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

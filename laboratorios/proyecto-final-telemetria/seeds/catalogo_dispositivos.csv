@@ -1,0 +1,13 @@
+dispositivo_id,tipo,sitio,instalado_en
+DSP-001,gateway,Planta Norte,2025-03-10
+DSP-002,sensor_temperatura,Planta Norte,2025-03-12
+DSP-003,medidor_energia,Planta Norte,2025-04-02
+DSP-004,sensor_temperatura,Planta Norte,2025-04-02
+DSP-005,gateway,Planta Sur,2025-05-20
+DSP-006,sensor_temperatura,Planta Sur,2025-05-21
+DSP-007,medidor_energia,Planta Sur,2025-06-01
+DSP-008,sensor_temperatura,Planta Sur,2025-06-01
+DSP-009,gateway,Bodega Central,2025-07-15
+DSP-010,sensor_temperatura,Bodega Central,2025-07-15
+DSP-011,medidor_energia,Bodega Central,2025-08-03
+DSP-012,sensor_temperatura,Bodega Central,2025-08-03
