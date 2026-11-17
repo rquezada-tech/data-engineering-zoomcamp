@@ -1,0 +1,44 @@
+# Flujo 2: ejecutar un script de Python que GENERA un CSV pequeño con lecturas de sensores inventadas.
+# El CSV queda guardado como "archivo de salida" (output). Puedes descargarlo en la pestaña Outputs.
+id: python_csv
+namespace: dez.es.m2
+
+description: Genera un CSV sintético de lecturas de sensores con Python (sin librerías externas ni internet).
+
+inputs:
+  - id: lecturas
+    type: INT
+    defaults: 100
+
+tasks:
+  - id: generar_csv
+    type: io.kestra.plugin.scripts.python.Script
+    # taskRunner Process = el script corre DENTRO del contenedor de Kestra, que ya trae Python 3.
+    # (El curso oficial usa el runner Docker, que crea un contenedor aparte; aquí lo evitamos
+    #  para no depender del socket de Docker ni de descargar imágenes extra.)
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    outputFiles:
+      - lecturas.csv
+    script: |
+      import csv, random
+      from datetime import datetime, timedelta
+
+      rng = random.Random(42)           # semilla fija: siempre los mismos datos
+      inicio = datetime(2024, 1, 1)
+      n = {{ inputs.lecturas }}
+      with open("lecturas.csv", "w", newline="") as f:
+          w = csv.writer(f)
+          w.writerow(["sensor_id", "medido_en", "temperatura_c", "humedad_pct"])
+          for i in range(n):
+              w.writerow([
+                  f"S{rng.randint(1, 5):02d}",
+                  (inicio + timedelta(minutes=10 * i)).isoformat(sep=" "),
+                  round(rng.uniform(15, 35), 1),
+                  round(rng.uniform(30, 90), 1),
+              ])
+      print(f"Generé {n} lecturas en lecturas.csv")
+
+  - id: avisar
+    type: io.kestra.plugin.core.log.Log
+    message: "CSV listo: {{ outputs.generar_csv.outputFiles['lecturas.csv'] }}"

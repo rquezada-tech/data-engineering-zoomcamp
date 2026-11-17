@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: dim_zonas
+    description: Dimensión de zonas.
+    columns:
+      - name: zona_id
+        data_tests: [unique, not_null]
+      - name: tipo_zona
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["comercial", "residencial", "transporte", "educacion"]
+
+  - name: fct_viajes
+    description: Un registro por viaje válido (tarifa mayor que 0).
+    columns:
+      - name: viaje_id
+        data_tests: [unique, not_null]
+      - name: zona_origen_id
+        description: Llave hacia dim_zonas.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_zonas')
+                field: zona_id
+      - name: tipo_pago
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["tarjeta", "efectivo", "app"]
+
+  - name: ingresos_mensuales_por_zona
+    description: Ingresos por mes y zona de origen. Pensado para un dashboard.
+    columns:
+      - name: mes
+        data_tests: [not_null]
+      - name: zona
+        data_tests: [not_null]

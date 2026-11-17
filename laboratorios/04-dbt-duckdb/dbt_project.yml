@@ -1,0 +1,27 @@
+# Configuración principal del proyecto dbt.
+name: viajes_locales
+version: "1.0.0"
+profile: viajes_locales   # debe coincidir con el nombre en profiles.yml
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  viajes_locales:
+    staging:
+      +materialized: view    # vistas: livianas, siempre muestran el dato más reciente
+      +schema: staging
+    intermediate:
+      +materialized: table
+      +schema: intermediate
+    marts:
+      +materialized: table   # tablas: listas para que las consulte un dashboard
+      +schema: marts
+
+seeds:
+  viajes_locales:
+    +schema: referencia

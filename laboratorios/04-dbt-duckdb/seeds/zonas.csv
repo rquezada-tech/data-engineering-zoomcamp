@@ -1,0 +1,9 @@
+zona_id,zona,tipo_zona
+1,Centro,comercial
+2,Norte,residencial
+3,Sur,residencial
+4,Oriente,residencial
+5,Poniente,residencial
+6,Aeropuerto,transporte
+7,Puerto,transporte
+8,Universidad,educacion

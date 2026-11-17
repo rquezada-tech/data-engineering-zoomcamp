@@ -1,0 +1,98 @@
+# Flujo 3: un pequeño pipeline ETL (Extraer -> Transformar -> Cargar) hacia PostgreSQL.
+#   1. Genera el CSV con las lecturas de UN día (como el flujo 2).
+#   2. Crea la tabla si no existe.
+#   3. Borra las lecturas de ese día. Así, si lo vuelves a ejecutar, no se duplican datos
+#      (a esto se le llama que el flujo sea "idempotente").
+#   4. Copia el CSV a la tabla con COPY (la forma más rápida de cargar datos en Postgres).
+#   5. Cuenta las filas cargadas y lo informa en los logs.
+id: cargar_postgres
+namespace: dez.es.m2
+
+description: Carga lecturas sintéticas de un día en la base datos_postgres. Incluye un trigger Schedule.
+
+inputs:
+  - id: fecha
+    type: DATE
+    defaults: 2024-01-01
+
+variables:
+  # Si el flujo lo dispara el Schedule (o un backfill), usamos la fecha programada del trigger;
+  # si lo ejecutas tú a mano, usamos el input "fecha".
+  fecha: "{{ trigger.date ?? inputs.fecha | date('yyyy-MM-dd') }}"
+
+tasks:
+  - id: generar_csv
+    type: io.kestra.plugin.scripts.python.Script
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    outputFiles:
+      - lecturas.csv
+    script: |
+      import csv, random
+      from datetime import datetime, timedelta
+
+      fecha = "{{ render(vars.fecha) }}"
+      rng = random.Random(fecha)        # semilla = la fecha: cada día trae datos distintos pero repetibles
+      inicio = datetime.fromisoformat(fecha)
+      with open("lecturas.csv", "w", newline="") as f:
+          w = csv.writer(f)
+          w.writerow(["sensor_id", "medido_en", "temperatura_c", "humedad_pct"])
+          for i in range(144):          # una lectura cada 10 minutos = 144 lecturas por día
+              w.writerow([
+                  f"S{rng.randint(1, 5):02d}",
+                  (inicio + timedelta(minutes=10 * i)).isoformat(sep=" "),
+                  round(rng.uniform(15, 35), 1),
+                  round(rng.uniform(30, 90), 1),
+              ])
+
+  - id: crear_tabla
+    type: io.kestra.plugin.jdbc.postgresql.Queries
+    sql: |
+      CREATE TABLE IF NOT EXISTS public.lecturas (
+          sensor_id      text,
+          medido_en      timestamp,
+          temperatura_c  double precision,
+          humedad_pct    double precision
+      );
+
+  - id: borrar_dia
+    type: io.kestra.plugin.jdbc.postgresql.Queries
+    sql: |
+      DELETE FROM public.lecturas WHERE medido_en::date = DATE '{{ render(vars.fecha) }}';
+
+  - id: copiar_csv
+    type: io.kestra.plugin.jdbc.postgresql.CopyIn
+    format: CSV
+    header: true
+    from: "{{ outputs.generar_csv.outputFiles['lecturas.csv'] }}"
+    table: public.lecturas
+    columns: [sensor_id, medido_en, temperatura_c, humedad_pct]
+
+  - id: contar
+    type: io.kestra.plugin.jdbc.postgresql.Query
+    sql: SELECT COUNT(*) AS filas FROM public.lecturas WHERE medido_en::date = DATE '{{ render(vars.fecha) }}';
+    fetchType: FETCH_ONE
+
+  - id: informar
+    type: io.kestra.plugin.core.log.Log
+    message: "Cargadas {{ outputs.contar.row.filas }} lecturas para el {{ render(vars.fecha) }}."
+
+# Trigger = algo que inicia el flujo automáticamente. Este: todos los días a las 06:00 (hora de Chile).
+# Viene DESACTIVADO (disabled: true) para que no corra solo mientras aprendes.
+# Para "rellenar" días pasados (backfill): en la UI, pestaña Triggers -> botón Backfill.
+triggers:
+  - id: diario
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "0 6 * * *"
+    timezone: America/Santiago
+    disabled: true
+
+# pluginDefaults = valores que se aplican a todas las tareas de un tipo, para no repetirlos en cada una.
+# "datos_postgres" es el nombre del servicio en docker-compose.yml: dentro de la red de Docker,
+# los contenedores se encuentran por su nombre (no por "localhost").
+pluginDefaults:
+  - type: io.kestra.plugin.jdbc.postgresql
+    values:
+      url: jdbc:postgresql://datos_postgres:5432/sensores
+      username: datos
+      password: datos

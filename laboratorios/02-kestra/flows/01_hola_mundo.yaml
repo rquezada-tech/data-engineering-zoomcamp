@@ -1,0 +1,24 @@
+# Flujo 1: el "hola mundo" de Kestra.
+# Un flujo (flow) es una receta escrita en YAML: tiene un id, un namespace (una "carpeta" lógica)
+# y una lista de tareas (tasks) que se ejecutan en orden, de arriba hacia abajo.
+id: hola_mundo
+namespace: dez.es.m2
+
+description: Primer flujo del laboratorio. Recibe un nombre y lo saluda en los logs.
+
+# inputs = datos que pides al momento de ejecutar el flujo (en la UI aparecen como un formulario).
+inputs:
+  - id: nombre
+    type: STRING
+    defaults: Mundo
+
+tasks:
+  # Tarea 1: escribir un mensaje en los logs. {{ inputs.nombre }} se reemplaza por el valor ingresado.
+  - id: saludar
+    type: io.kestra.plugin.core.log.Log
+    message: "¡Hola, {{ inputs.nombre }}! Este flujo partió el {{ execution.startDate }}."
+
+  # Tarea 2: otro mensaje, para ver que las tareas corren una después de la otra.
+  - id: despedir
+    type: io.kestra.plugin.core.log.Log
+    message: "Listo. La ejecución {{ execution.id }} llegó a su última tarea."

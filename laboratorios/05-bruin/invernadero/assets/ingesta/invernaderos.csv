@@ -1,0 +1,4 @@
+invernadero_id,nombre,cultivo
+INV-1,Invernadero Norte,tomate
+INV-2,Invernadero Sur,lechuga
+INV-3,Invernadero Este,frutilla

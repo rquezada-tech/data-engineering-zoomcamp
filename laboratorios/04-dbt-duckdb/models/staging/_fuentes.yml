@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: crudo
+    description: Archivos Parquet generados por generar_datos.py (los datos "en bruto").
+    tables:
+      - name: viajes
+        description: Un registro por viaje, tal como llegó.
+        config:
+          # dbt-duckdb lee los Parquet directamente, sin cargarlos antes a la base.
+          external_location: "read_parquet('datos/viajes_*.parquet')"

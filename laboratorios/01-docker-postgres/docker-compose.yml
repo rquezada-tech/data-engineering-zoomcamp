@@ -1,0 +1,54 @@
+# Laboratorio 1: PostgreSQL + pgAdmin + un contenedor de ingesta, todo con Docker Compose.
+# Arranque:  docker compose up -d --wait
+# Ingesta:   docker compose run --rm ingesta
+# Apagar:    docker compose down        (conserva los datos)
+#            docker compose down -v     (borra los datos)
+name: dez-m1
+
+services:
+  postgres:
+    image: postgres:18
+    environment:
+      # Credenciales SOLO para practicar en tu computador.
+      POSTGRES_USER: estudiante
+      POSTGRES_PASSWORD: estudiante
+      POSTGRES_DB: clima
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      # Desde PostgreSQL 18 la imagen guarda los datos bajo /var/lib/postgresql
+      - pg-datos:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U estudiante -d clima"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  pgadmin:
+    image: dpage/pgadmin4:9
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@ejemplo.com
+      PGADMIN_DEFAULT_PASSWORD: estudiante
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    ports:
+      - "127.0.0.1:8085:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  ingesta:
+    build: ./ingesta
+    # Este servicio no queda encendido: solo se ejecuta cuando lo pides con "docker compose run".
+    profiles: ["ingesta"]
+    environment:
+      PG_HOST: postgres          # dentro de la red de Compose, el nombre del servicio funciona como dirección
+      PG_PORT: "5432"
+      PG_USER: estudiante
+      PG_PASSWORD: estudiante
+      PG_DB: clima
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  pg-datos:

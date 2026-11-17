@@ -1,0 +1,8 @@
+[project]
+name = "taller-dlt-local"
+version = "0.1.0"
+description = "Taller de ingesta con dlt: datos sintéticos -> DuckDB local, con carga incremental"
+requires-python = ">=3.11"
+dependencies = [
+    "dlt[duckdb]>=1.21",
+]

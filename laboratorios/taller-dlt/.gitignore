@@ -1,0 +1,5 @@
+tienda_local.duckdb
+tienda_local.duckdb.wal
+.dlt_pipelines/
+.venv/
+__pycache__/

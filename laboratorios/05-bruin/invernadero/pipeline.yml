@@ -1,0 +1,17 @@
+# Un pipeline = un conjunto de assets (tablas) con dependencias entre ellos.
+name: invernadero
+schedule: daily
+start_date: "2024-03-01"
+catchup: false
+
+default_connections:
+  duckdb: duckdb-local
+
+# Variables: valores que puedes cambiar al ejecutar, con --var
+variables:
+  umbral_temperatura_c:
+    type: number
+    default: 30
+  lecturas_por_hora:
+    type: integer
+    default: 4

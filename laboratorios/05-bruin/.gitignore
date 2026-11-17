@@ -1,0 +1,9 @@
+*.duckdb
+*.duckdb.wal
+logs/
+.venv/
+__pycache__/
+# El .gitignore raíz del repositorio ignora *.csv y Bruin agrega .bruin.yml;
+# estos dos archivos SÍ son parte del laboratorio:
+!.bruin.yml
+!invernadero/assets/ingesta/invernaderos.csv

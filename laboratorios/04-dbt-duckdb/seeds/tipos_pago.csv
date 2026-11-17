@@ -1,0 +1,4 @@
+tipo_pago_id,descripcion
+1,tarjeta
+2,efectivo
+3,app

@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_viajes
+    description: Viajes con nombres y tipos limpios. Incluye todavía los registros con tarifa 0.
+    columns:
+      - name: viaje_id
+        description: Identificador único del viaje.
+        data_tests:
+          - unique
+          - not_null
+      - name: zona_origen
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["Centro", "Norte", "Sur", "Oriente", "Poniente", "Aeropuerto", "Puerto", "Universidad"]
+      - name: tipo_pago_id
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3]
+                quote: false

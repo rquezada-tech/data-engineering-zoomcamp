@@ -1,0 +1,13 @@
+# Dónde se conecta dbt. Aquí: un archivo DuckDB dentro de esta carpeta.
+# Lo usamos con:  --profiles-dir .   (o exportando DBT_PROFILES_DIR=.)
+viajes_locales:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: viajes_locales.duckdb
+      threads: 4
+      settings:
+        # Sin esto DuckDB usa la zona horaria de tu computador, y un viaje del
+        # 1 de enero a las 01:00 UTC podría "caer" en diciembre si vives en América.
+        TimeZone: UTC

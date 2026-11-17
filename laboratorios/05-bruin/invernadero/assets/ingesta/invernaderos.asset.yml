@@ -1,0 +1,20 @@
+# Asset "seed": carga un CSV tal cual a DuckDB.
+name: ingesta.invernaderos
+type: duckdb.seed
+description: Catálogo de invernaderos y el cultivo de cada uno.
+
+parameters:
+  path: ./invernaderos.csv
+
+columns:
+  - name: invernadero_id
+    type: varchar
+    primary_key: true
+    checks:
+      - name: not_null
+      - name: unique
+  - name: cultivo
+    type: varchar
+    checks:
+      - name: accepted_values
+        value: [tomate, lechuga, frutilla]

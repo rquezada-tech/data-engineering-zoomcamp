@@ -1,0 +1,15 @@
+version: 2
+seeds:
+  - name: zonas
+    description: Lista de zonas de la ciudad inventada del laboratorio.
+    config:
+      column_types:
+        zona_id: integer
+        zona: varchar
+        tipo_zona: varchar
+  - name: tipos_pago
+    description: Traduce el código de pago (1, 2, 3) a un nombre legible.
+    config:
+      column_types:
+        tipo_pago_id: integer
+        descripcion: varchar

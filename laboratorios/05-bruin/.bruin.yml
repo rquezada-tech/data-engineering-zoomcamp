@@ -1,0 +1,9 @@
+# Conexiones de Bruin para este laboratorio. Se usa con:  --config-file .bruin.yml
+# (Bruin buscaría por defecto este archivo en la raíz del repositorio git.)
+default_environment: local
+environments:
+  local:
+    connections:
+      duckdb:
+        - name: duckdb-local
+          path: invernadero.duckdb   # archivo de base de datos dentro de esta carpeta

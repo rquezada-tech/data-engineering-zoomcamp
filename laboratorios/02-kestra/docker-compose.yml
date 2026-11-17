@@ -1,0 +1,87 @@
+# Laboratorio del módulo 2: Kestra (orquestador) + dos bases PostgreSQL.
+#
+#   kestra          -> el orquestador. Interfaz web en http://localhost:8080
+#   kestra_postgres -> la "memoria" interna de Kestra (flujos, ejecuciones, logs). No la tocas tú.
+#   datos_postgres  -> la base donde NUESTROS flujos guardan datos. En tu Mac: localhost:5434
+#
+# Configuración escrita para este laboratorio siguiendo la del curso (cohorte 2026, kestra/kestra:v1.1).
+# Todas las contraseñas son valores de prueba locales.
+name: dez-m2
+
+services:
+  kestra_postgres:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: kestra
+      POSTGRES_USER: kestra
+      POSTGRES_PASSWORD: k3str4
+    volumes:
+      - kestra_postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d kestra -U kestra"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  datos_postgres:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: sensores
+      POSTGRES_USER: datos
+      POSTGRES_PASSWORD: datos
+    ports:
+      - "127.0.0.1:5434:5432"   # puerto 5434 en tu Mac -> 5432 dentro del contenedor
+    volumes:
+      - datos_postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d sensores -U datos"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  kestra:
+    image: kestra/kestra:v1.1
+    # root solo para desarrollo local: así Kestra puede escribir en los volúmenes sin problemas de permisos.
+    user: "root"
+    command: server standalone
+    volumes:
+      - kestra_data:/app/storage
+      - kestra_tmp:/tmp/kestra-wd
+    environment:
+      KESTRA_CONFIGURATION: |
+        datasources:
+          postgres:
+            url: jdbc:postgresql://kestra_postgres:5432/kestra
+            driverClassName: org.postgresql.Driver
+            username: kestra
+            password: k3str4
+        kestra:
+          server:
+            basicAuth:
+              username: "${KESTRA_USUARIO:-admin@kestra.io}"
+              password: "${KESTRA_CLAVE:-Admin1234!}"
+          repository:
+            type: postgres
+          queue:
+            type: postgres
+          storage:
+            type: local
+            local:
+              basePath: "/app/storage"
+          tasks:
+            tmpDir:
+              path: /tmp/kestra-wd/tmp
+          url: http://localhost:8080/
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      kestra_postgres:
+        condition: service_healthy
+      datos_postgres:
+        condition: service_healthy
+
+volumes:
+  kestra_postgres_data:
+  datos_postgres_data:
+  kestra_data:
+  kestra_tmp:
