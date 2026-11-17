@@ -1,0 +1,30 @@
+# LocalCloud: emulador local de servicios de Google Cloud (BigQuery, Cloud Storage, ...)
+# Documentación vigente: https://local.cloud/docs/#manual-docker-path
+# Este archivo replica el "manual Docker path" de la documentación oficial,
+# pero con Docker Compose para que puedas arrancarlo y detenerlo con un solo comando.
+name: localcloud
+
+services:
+  localcloud:
+    # Imagen fijada por digest para que todos usen exactamente la misma versión.
+    # Para actualizar: docker pull agentcloud/localcloud:latest y reemplaza el digest.
+    image: agentcloud/localcloud@sha256:33622d5327673ecb9fae9be15a549e95c80b7ad9c97c57b631e3e61cb718219e
+    container_name: localcloud
+    ports:
+      # Solo en 127.0.0.1: nadie fuera de tu Mac puede conectarse.
+      - "127.0.0.1:5380-5405:5380-5405"
+    environment:
+      # Desactiva la telemetría del emulador (ver https://local.cloud/docs/privacy/).
+      LOCALCLOUD_TELEMETRY: "false"
+    volumes:
+      - localcloud-data:/var/lib/localcloud
+    mem_limit: 4g
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:5380/readiness || wget -qO- http://localhost:5380/readiness"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+      start_period: 10s
+
+volumes:
+  localcloud-data:

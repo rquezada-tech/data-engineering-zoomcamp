@@ -1,0 +1,15 @@
+[project]
+name = "lab-bigquery-parquet-localcloud"
+version = "0.1.0"
+description = "Laboratorio del módulo 3: Parquet -> Cloud Storage local -> BigQuery local (LocalCloud)"
+requires-python = ">=3.11"
+dependencies = [
+    "google-cloud-bigquery>=3.25",
+    "google-cloud-storage>=2.18",
+    "pyarrow>=17",
+    # Red de seguridad para Mac: si tu Python es x86_64 (corre bajo Rosetta, típico cuando
+    # Homebrew está en /usr/local), cryptography 50.x falla al cargar con el error
+    # "mis-aligned LINKEDIT string pool". Con Python arm64 nativo no pasa.
+    # Ver docs/es/00-antes-de-empezar.md, sección "¿Tu Mac usa herramientas arm64?".
+    "cryptography>=44,<49",
+]
