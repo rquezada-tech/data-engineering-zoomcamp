@@ -1,0 +1,9 @@
+[project]
+name = "lab-streaming-redpanda-pyflink"
+version = "0.1.0"
+description = "Laboratorio del módulo 7: productor y consumidor Python para Redpanda"
+requires-python = ">=3.11"
+dependencies = [
+    "kafka-python>=2.3.0",      # cliente Kafka 100% Python: se instala igual en arm64 e Intel
+    "psycopg[binary]>=3.2",     # para consultar PostgreSQL desde tu Mac
+]

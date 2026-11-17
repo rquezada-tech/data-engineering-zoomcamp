@@ -1,0 +1,89 @@
+# Laboratorio módulo 7: streaming con Redpanda (compatible con Kafka) + Flink (PyFlink) + PostgreSQL.
+name: dez-m7
+
+x-flink-config: &flink-config
+  FLINK_PROPERTIES: |
+    jobmanager.rpc.address: jobmanager
+    taskmanager.numberOfTaskSlots: 4
+    parallelism.default: 1
+    python.executable: /opt/venv/bin/python
+    python.client.executable: /opt/venv/bin/python
+    jobmanager.memory.process.size: 1200m
+    taskmanager.memory.process.size: 1600m
+
+services:
+  redpanda:
+    image: redpandadata/redpanda:v25.3.9
+    container_name: dez-m7-redpanda
+    command:
+      - redpanda start
+      - --mode dev-container
+      - --smp 1
+      - --memory 1G
+      # Dos "puertas": una para los contenedores (redpanda:29092) y otra para tu Mac (127.0.0.1:9092).
+      # Usamos 127.0.0.1 y no "localhost": en macOS "localhost" puede resolverse a IPv6 (::1) y fallar.
+      - --kafka-addr internal://0.0.0.0:29092,external://0.0.0.0:9092
+      - --advertise-kafka-addr internal://redpanda:29092,external://127.0.0.1:9092
+    ports:
+      - "127.0.0.1:9092:9092"
+    healthcheck:
+      test: ["CMD-SHELL", "rpk cluster health | grep -q 'Healthy:.*true'"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  consola:
+    # Interfaz web opcional para mirar tópicos y mensajes: docker compose --profile consola up -d
+    image: redpandadata/console:v3.3.2
+    container_name: dez-m7-consola
+    profiles: ["consola"]
+    environment:
+      KAFKA_BROKERS: redpanda:29092
+    ports:
+      - "127.0.0.1:8082:8080"
+    depends_on:
+      redpanda:
+        condition: service_healthy
+
+  jobmanager:
+    build: ./flink
+    image: dez-m7-flink:2.2.0
+    container_name: dez-m7-jobmanager
+    command: jobmanager
+    ports:
+      - "127.0.0.1:8081:8081"   # Flink UI: http://localhost:8081
+    environment: *flink-config
+    volumes:
+      - ./jobs:/opt/jobs
+    depends_on:
+      redpanda:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+
+  taskmanager:
+    image: dez-m7-flink:2.2.0
+    container_name: dez-m7-taskmanager
+    command: taskmanager
+    environment: *flink-config
+    volumes:
+      - ./jobs:/opt/jobs
+    depends_on:
+      - jobmanager
+
+  postgres:
+    image: postgres:18
+    container_name: dez-m7-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: streaming
+    ports:
+      - "127.0.0.1:5433:5432"   # 5433 en tu Mac para no chocar con otro PostgreSQL en 5432
+    volumes:
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d streaming"]
+      interval: 5s
+      timeout: 3s
+      retries: 20

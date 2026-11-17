@@ -1,0 +1,17 @@
+# Laboratorio módulo 6: PySpark sin instalar Java en tu Mac.
+# Spark (y Java) viven dentro de la imagen oficial de Apache Spark.
+name: dez-m6
+
+services:
+  spark:
+    image: apache/spark:4.0.1-python3   # Spark 4.0.1 + Java 17 + Python 3.10, disponible para arm64
+    container_name: dez-m6-spark
+    user: root                          # para poder escribir en la carpeta montada sin problemas de permisos
+    working_dir: /lab
+    volumes:
+      - ./:/lab                         # esta carpeta de tu Mac aparece como /lab dentro del contenedor
+    ports:
+      - "127.0.0.1:4040:4040"           # Spark UI: http://localhost:4040 (solo mientras un trabajo corre)
+    environment:
+      SPARK_DRIVER_MEMORY: 1g
+    command: ["sleep", "infinity"]      # el contenedor queda encendido esperando tus comandos
