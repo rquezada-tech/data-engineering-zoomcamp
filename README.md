@@ -64,6 +64,7 @@ docker compose -f laboratorios/localcloud/docker-compose.yml down
 ## Material de apoyo
 
 - 📚 [Glosario](docs/es/glosario.md): todos los términos explicados en simple.
+- 🗺️ [Mapa del curso original](docs/es/mapa-del-curso.md): qué hay en cada carpeta en inglés del curso, explicado en español. Cada carpeta tiene además su propio `LEEME.md`.
 - ✅ [Registro de verificación](docs/es/verificacion.md): qué se probó, cómo y con qué resultado.
 - 🏷️ [Atribución, licencias y versión de referencia](docs/es/atribucion-y-version.md).
 - 🎥 [Lista de videos oficial del curso (en inglés)](https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) y [FAQ oficial](https://datatalks.club/faq/data-engineering-zoomcamp.html).

@@ -1,7 +1,7 @@
 """Verifica la ruta en español sin ejecutar los laboratorios.
 
 Revisa:
-  1. Enlaces internos de README.md, docs/es/*.md y laboratorios/**/README.md
+  1. Enlaces internos de README.md, docs/es/*.md, laboratorios/**/README.md y los mapas LEEME.md
      (que el archivo exista y, si hay #ancla, que el título exista).
   2. Enlaces al repositorio original fijados al commit de referencia: que la ruta exista en ese commit
      (requiere el remoto "upstream" o tener ese commit en el historial local).
@@ -59,6 +59,9 @@ def anclas(archivo: Path) -> set[str]:
 def documentos() -> list[Path]:
     docs = [RAIZ / "README.md", *sorted((RAIZ / "docs" / "es").glob("*.md"))]
     for p in sorted((RAIZ / "laboratorios").rglob("README.md")):
+        if not IGNORAR.intersection(p.relative_to(RAIZ).parts):
+            docs.append(p)
+    for p in sorted(RAIZ.rglob("LEEME.md")):
         if not IGNORAR.intersection(p.relative_to(RAIZ).parts):
             docs.append(p)
     return docs
